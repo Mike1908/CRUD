@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 const Root = () => (
   <Router>
     <Routes>
-      <Route exact path="/" element={<App/>}/>
+      <Route exact path="/CRUD/" element={<App/>}/>
       <Route path="*" element={<NotFound/>}/>
     </Routes>
 </Router>
