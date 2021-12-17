@@ -1,0 +1,60 @@
+.read{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.articleItem{
+    font-family: "Lato",Arial,Helvetica,sans-serif;
+    width:250px;
+    height: 300px;
+  
+    margin:10px;
+    margin-bottom:20px;
+    display: flex;
+    justify-content:center;
+    align-items:flex-start;
+    flex-direction: column;
+}
+.articleItem:hover{
+    transition: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.imageArt{
+    margin-left:5px;
+    margin-top:3px;
+    height:80%;
+    width:96%;
+    background-color: bisque;
+}
+.infoArt{
+    margin-left:5px;
+    margin-top:2px;
+    margin-bottom:2px;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.nomArt{
+    
+    font-weight: bold;
+    font-size:medium;
+}
+.descriptionArt{
+    
+    font-size: small;
+}
+.prixArt{
+
+    font-weight: bold;
+    font-size:medium;
+}
+
+.select{
+    font-weight: bold;
+    font-size:medium;
+}

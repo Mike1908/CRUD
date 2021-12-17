@@ -1,0 +1,44 @@
+.Footer{
+    margin-top:40px;
+    height: 400px;
+    width:100%;
+}
+.FooterTop{
+    height:30%;
+    border-top:1px solid rgba(250, 235, 215, 0.692);
+    border-bottom:1px solid rgba(165, 42, 42, 0.952);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FooterTop div{
+    margin-left:20px;
+    margin-right:20px;
+}
+.FooterMid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color:rgba(250, 235, 215, 0.692);
+    height:50%;
+}
+.FooterMid div{
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom:8px;
+}
+.FooterBottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size:10px;
+    background-color: rgba(165, 42, 42, 0.952);
+    height:20%;
+}
+.petitTitre{
+    font-weight: bold;
+    margin-bottom:15px;
+}

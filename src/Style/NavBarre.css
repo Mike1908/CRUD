@@ -1,0 +1,69 @@
+.NavBarre{
+    background-color: rgba(250, 235, 215, 0.692);
+    padding-top: 1%;
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    height:140px;
+    font-family: 'Lato',Arial,Helvetica,sans-serif;
+}
+
+
+.Nav-1{
+    height:20%;
+    margin-bottom:0.5%;
+    display: flex;
+    justify-content:space-between;
+}
+
+.Nav-1-Left{
+    margin-left: 1%;
+    display: flex;
+}
+.Nav-1-Left div {
+    cursor:pointer;
+    margin-right:10px;
+    color: black;
+}
+
+.Nav-1-Right{
+    margin-right: 1%;
+    display: flex;
+}
+.Nav-1-Right div{
+    margin-left:10px;
+}
+
+.deco{
+    font-weight: bold;
+    cursor:pointer;
+}
+.Nav-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height:60%;
+    margin-bottom:0.5%;
+}
+
+.titre_page{
+    text-align: center;
+    font-weight: bold;
+    font-size:xx-large;
+}
+
+.Nav-3{
+    background-color: rgba(165, 42, 42, 0.952);
+    height:20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.Nav-3 div{
+    cursor:pointer;
+    margin-right: 3.5%;
+    margin-left: 3.5%;
+    color: white;
+}
