@@ -4,14 +4,14 @@ import React, {useState, useEffect} from 'react';
 import Main from './components/Main';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import 'firebase/compat/auth';
-import { UidContext} from './components/UidContext';
+import {UidContext} from './components/UidContext';
 
 
 const App =() =>{
   //verifie si on est connecte
   const [isSignedIn, setSignedIn] = useState(false);
-  const [uid, setUid] = useState(null); 
-
+  const [uid, setUid] = useState(null);
+ 
   
   const uiConfig = {
     signInFlow: "popup",
@@ -31,7 +31,7 @@ const App =() =>{
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user)=>{
       setSignedIn(!!user);
-      console.log(user);
+      //console.log(user);
 
       if (!!user) {
         setUid(user.uid);
@@ -60,15 +60,15 @@ const App =() =>{
   // il y a un if cache (:)
   return (
     <UidContext.Provider value={uid}>
-      <div className="App" style={{textAlign: 'center'}}>
-      
-        {isSignedIn ? (
-          <Main />
-        ):(
-          nonConnextion()
-        )}
+          <div className="App" style={{textAlign: 'center'}}>
+          
+            {isSignedIn ? (
+              <Main />
+            ):(
+              nonConnextion()
+            )}
 
-      </div>
+          </div>
     </UidContext.Provider>
   );
 };

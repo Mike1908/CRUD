@@ -49,6 +49,9 @@ const Create = () => {
         <div className="Create">
         
             <div className="from">
+                <div className="image-input">
+                    <input type="file" className="file"/>
+                </div>
                 <div>
                     <input type="text"
                         placeholder="nom"

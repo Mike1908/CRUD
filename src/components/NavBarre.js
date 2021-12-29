@@ -5,6 +5,8 @@ import 'firebase/compat/auth';
 
 
 const NavBarre = (props) => {
+
+    //const nombreArt =0;
    
     return (
         <div className="NavBarre">
@@ -22,7 +24,7 @@ const NavBarre = (props) => {
                 <div className="Nav-1-Right">
                     <div>{firebase.auth().currentUser.displayName}</div>
                     <div>Souhaits</div>
-                    <div>Mon sac(0)</div>
+                    <div onClick={props.setIsPanie}>Mon sac({props.panie.length})</div>
                 </div>
             </div>
 

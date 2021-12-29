@@ -31,10 +31,22 @@ const Read = (props) => {
     const filtreAff = (item,index) =>{
       
         if (props.filtre === "Nouveaute") {   
-            return <UpdateDelete item={item} key={index} affButon={props.affButon}/>
+            return <UpdateDelete 
+                        item={item} 
+                        key={index} 
+                        affButon={props.affButon}
+                        panie={props.panie}
+                        setPanie={props.setPanie}
+                    />
         }
         if (props.filtre === item.type){
-            return <UpdateDelete item={item} key={index} affButon={props.affButon}/>
+            return <UpdateDelete 
+                        item={item} 
+                        key={index} 
+                        affButon={props.affButon}
+                        panie={props.panie}
+                        setPanie={props.setPanie}
+                    />
         }
         
     }
@@ -42,7 +54,7 @@ const Read = (props) => {
     return (
         <div className="read">
             {
-               articleList && 
+               articleList.reverse() && 
                articleList.reverse().map((item, index) =>(
                    filtreAff(item,index)
                ))

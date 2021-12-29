@@ -1,7 +1,8 @@
 import React, {useState,useContext} from 'react';
 import firebase from '../utils/firebase';
 import '../Style/UpdateDelete.css';
-import { UidContext } from "./UidContext";
+import { UidContext} from "./UidContext";
+import image from '../img/ordi.jpg';
 
 const UpdateDelete = (props) => {
     const [update, setUpdate] = useState(false);
@@ -58,11 +59,26 @@ const UpdateDelete = (props) => {
         uCheck();
     }
 
+    const handleCliquePanie = () =>{
+
+        if(props.panie.length < 1){
+            let list2 = [];
+            list2.push(props.item);
+            props.setPanie(list2);
+        }else{
+            let list2 = [];
+            list2.push(props.item, ...props.panie);
+            props.setPanie(list2);
+        }
+    }
+
     return (
         <div>
             { update === false && (
-                <div className="articleItem">
-                    <div className="imageArt">img</div>
+                <div className="articleItem" onClick={handleCliquePanie}>
+                    <div className="imageArt">
+                        <img className="image" alt="img-test" src={image} />
+                    </div>
 
                     <div className="infoArt">
                         <div className="nomArt">{props.item.articleNom}</div>
