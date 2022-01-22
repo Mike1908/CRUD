@@ -24,7 +24,7 @@ const NavBarre = (props) => {
                 <div className="Nav-1-Right">
                     <div>{firebase.auth().currentUser.displayName}</div>
                     <div>Souhaits</div>
-                    <div onClick={props.setIsPanie}>Mon sac({props.panie.length})</div>
+                    <div className='panieSac' onClick={props.setIsPanie}>Mon sac({props.panie.length})</div>
                 </div>
             </div>
 

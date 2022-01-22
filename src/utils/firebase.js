@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 import firebase from "firebase/compat/app";
 import "firebase/database";
-//import { getAnalytics } from "firebase/analytics";
-//import Rebase from 're-base'
+import "firebase/compat/storage";
+
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -18,9 +18,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-//const analytics = getAnalytics(firebase);
+const storage = firebase.storage();
 
-//const firebase = Rebase.createClass(app.database());
-
-//export {app};
-export default firebase;
+export{storage, firebase as default};

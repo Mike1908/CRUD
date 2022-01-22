@@ -1,10 +1,11 @@
 import React,{useContext, useState} from 'react';
-import firebase from '../utils/firebase';
+import firebase, { storage } from '../utils/firebase';
 import 'firebase/compat/database';
 import '../Style/Create.css';
 import { UidContext } from "./UidContext";
 
 const Create = () => {
+    const [image, setimage] = useState(null);
     const [articleNom, setArticleNom] = useState('');
     const [description, setDescription] = useState('');
     const [prix, setPrix] = useState('');
@@ -12,6 +13,15 @@ const Create = () => {
     const uid = useContext(UidContext);
 
     const createArticle = () => {
+
+        
+        if(image == null){
+            return;
+       }else{
+           storage.ref(`/images/${image.name}`).put(image)
+           .on("state_changed" , alert("success") , alert);
+       }
+        
         const articleDB = firebase.database().ref("articleDB");
         const article = {
             uid,
@@ -19,14 +29,21 @@ const Create = () => {
             description,
             prix,
             type,
+            imgUrl:image.name,
         };
-
         articleDB.push(article);
 
         //remetre a vide
         setArticleNom('');
         setDescription('');
         setPrix('');
+    }
+
+    
+    const handeleImage = Event =>{
+        if(Event.target.files[0]){
+            setimage(Event.target.files[0]);
+        }
     }
 
     const handleChange = Event =>{
@@ -50,7 +67,7 @@ const Create = () => {
         
             <div className="from">
                 <div className="image-input">
-                    <input type="file" className="file"/>
+                    <input type="file" className="file" onChange={handeleImage}/>
                 </div>
                 <div>
                     <input type="text"

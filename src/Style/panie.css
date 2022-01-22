@@ -1,0 +1,78 @@
+.Panie{
+    height:100%;
+    width:300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.miniature{
+    background-color: rgba(165, 42, 42, 0.952);
+    width:40px;
+    height:40px;
+    margin:5px;
+    border-radius:1%;
+}
+
+.artPanie{
+    background-color:rgba(250, 235, 215, 0.692);
+    width:100%;
+
+    display: flex;
+    justify-content: space-between;
+    border-radius:1%;
+    cursor: pointer;
+    margin-bottom:8px;
+}
+
+.artPanie:hover{
+    transition: 0.3s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.artPanie div{
+    margin-right:10px;
+}
+
+.colorArt{
+    background-color:red;
+    border-radius:1%;
+    border-style: solid;
+    border-color:black;
+    width:40px;
+    height:40%;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.infoSomaire{
+    color:white;
+    font-family: 'Lato',Arial,Helvetica,sans-serif;
+}
+
+.somme{
+    background-color: rgba(165, 42, 42, 0.952);
+    color: white;
+    border-radius:1%;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.somme:hover{
+    transition:0.3s;
+    background-color:rgba(250, 235, 215, 0.692);
+}
+.somme:hover::after {
+    content: ' Payer';
+}
+
+.supArt{
+    font-size: xx-small;
+    width:80px;
+    background-color: black;
+}
+
+.supArt:hover{
+    background-color:red;
+}

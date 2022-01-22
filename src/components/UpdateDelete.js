@@ -1,8 +1,7 @@
 import React, {useState,useContext} from 'react';
-import firebase from '../utils/firebase';
+import firebase, { storage } from '../utils/firebase';
 import '../Style/UpdateDelete.css';
 import { UidContext} from "./UidContext";
-import image from '../img/ordi.jpg';
 
 const UpdateDelete = (props) => {
     const [update, setUpdate] = useState(false);
@@ -10,8 +9,10 @@ const UpdateDelete = (props) => {
     const [descriptionUpdate, setDescriptionUpdate] = useState(null);
     const [prixUpdate, setPrixUpdate] = useState(null);
     const [typeUpdate, setTypeUpdate] = useState(null);
+    const [imageUrl, setimageUrl] = useState(null);
 
     const uid = useContext(UidContext);
+    storage.ref("images").child(props.item.imgUrl).getDownloadURL().then(url => setimageUrl(url));
 
     const uCheck = () => {
         if (props.item.uid === uid) {
@@ -77,7 +78,7 @@ const UpdateDelete = (props) => {
             { update === false && (
                 <div className="articleItem" onClick={handleCliquePanie}>
                     <div className="imageArt">
-                        <img className="image" alt="img-test" src={image} />
+                        <img className="image" alt="img-test" src={imageUrl} />
                     </div>
 
                     <div className="infoArt">
@@ -91,7 +92,9 @@ const UpdateDelete = (props) => {
 
             { update && (
                 <div className="articleItem">
-                    <div className="imageArt">img</div>
+                    <div className="imageArtUp">
+                        <img className="image" alt="img-test" src={imageUrl} />
+                    </div>
 
                     <div className="infoArt">
                         <div className="nomArt">

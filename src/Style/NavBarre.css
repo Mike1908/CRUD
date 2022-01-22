@@ -32,6 +32,7 @@
 }
 .Nav-1-Right div{
     margin-left:10px;
+    cursor:pointer;
 }
 
 .deco{
@@ -66,4 +67,12 @@
     margin-right: 3.5%;
     margin-left: 3.5%;
     color: white;
+}
+
+.Nav-3 div:hover{
+    font-weight: bold;
+}
+
+.panieSac{
+    color: brown;
 }

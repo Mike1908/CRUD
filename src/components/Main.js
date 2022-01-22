@@ -46,7 +46,7 @@ const Main = () => {
             />}
 
             {isPanie && <Popup
-                content={<Panie/>}
+                content={<Panie panie={panie} setPanie={setPanie}/>}
                 handleClose={togglePopupPanie}
             />}
             
