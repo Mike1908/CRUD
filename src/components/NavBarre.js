@@ -7,6 +7,11 @@ import 'firebase/compat/auth';
 const NavBarre = (props) => {
 
     //const nombreArt =0;
+    const { basket, setIsBasket} = props;
+    const {setFiltre} = props;
+    const {setrenderButon} = props;
+    const {renderButon} = props;
+    const {setIsOpen} = props;
    
     return (
         <div className="NavBarre">
@@ -17,14 +22,14 @@ const NavBarre = (props) => {
                         se deconnecter
                     </div>
              
-                    <div onClick={props.setIsOpen}>Vendre</div>
+                    <div onClick={setIsOpen}>Vendre</div>
 
-                    <div onClick={() => props.setaffButon(!props.affButon)}>Modiffier</div>
+                    <div onClick={() => setrenderButon(!renderButon)}>Modiffier</div>
                 </div>
                 <div className="Nav-1-Right">
                     <div>{firebase.auth().currentUser.displayName}</div>
                     <div>Souhaits</div>
-                    <div className='panieSac' onClick={props.setIsPanie}>Mon sac({props.panie.length})</div>
+                    <div className='panieSac' onClick={setIsBasket}>Mon sac({basket.length})</div>
                 </div>
             </div>
 
@@ -35,10 +40,10 @@ const NavBarre = (props) => {
             </div>
 
             <div className="Nav-3">
-                <div onClick={() => props.setFiltre("Nouveaute")}>Nouveaute</div> 
-                <div onClick={() => props.setFiltre("Femme")}>Femme</div> 
-                <div onClick={() =>props.setFiltre("Homme")}>Homme</div>
-                <div onClick={() =>props.setFiltre("Maison")}>Maison</div>
+                <div onClick={() =>setFiltre("Nouveaute")}>Nouveaute</div> 
+                <div onClick={() =>setFiltre("Femme")}>Femme</div> 
+                <div onClick={() =>setFiltre("Homme")}>Homme</div>
+                <div onClick={() =>setFiltre("Maison")}>Maison</div>
                 <div>Rechercher</div>
             </div>
 

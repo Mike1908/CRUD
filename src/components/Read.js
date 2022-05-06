@@ -14,6 +14,10 @@ const Read = (props) => {
     //la list des items
     const [articleList, setArticleList] = useState([]);
 
+    const {basket,setBasket} = props;
+    const {renderButon} = props;
+    const {filtre} = props;
+
     useEffect(() => {
         const articleDB = firebase.database().ref('articleDB');
 
@@ -30,22 +34,22 @@ const Read = (props) => {
 
     const filtreAff = (item,index) =>{
       
-        if (props.filtre === "Nouveaute") {   
+        if (filtre === "Nouveaute") {   
             return <UpdateDelete 
                         item={item} 
                         key={index} 
-                        affButon={props.affButon}
-                        panie={props.panie}
-                        setPanie={props.setPanie}
+                        renderButon={renderButon}
+                        basket={basket}
+                        setBasket={setBasket}
                     />
         }
-        if (props.filtre === item.type){
+        if (filtre === item.type){
             return <UpdateDelete 
                         item={item} 
                         key={index} 
-                        affButon={props.affButon}
-                        panie={props.panie}
-                        setPanie={props.setPanie}
+                        renderButon={renderButon}
+                        basket={basket}
+                        setBasket={setBasket}
                     />
         }
         

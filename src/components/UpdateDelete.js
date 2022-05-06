@@ -11,11 +11,15 @@ const UpdateDelete = (props) => {
     const [typeUpdate, setTypeUpdate] = useState(null);
     const [imageUrl, setimageUrl] = useState(null);
 
+    const {renderButon} = props;
+    const {item} = props;
+    const {basket, setBasket} =props
+
     const uid = useContext(UidContext);
-    storage.ref("images").child(props.item.imgUrl).getDownloadURL().then(url => setimageUrl(url));
+    storage.ref("images").child(item.imgUrl).getDownloadURL().then(url => setimageUrl(url));
 
     const uCheck = () => {
-        if (props.item.uid === uid) {
+        if (item.uid === uid) {
             return true;
         }else{
             return false;
@@ -24,7 +28,7 @@ const UpdateDelete = (props) => {
     uCheck();
 
     const updateItem = () => {
-        let article = firebase.database().ref("articleDB").child(props.item.id);
+        let article = firebase.database().ref("articleDB").child(item.id);
 
 
         if (articleNomUpdate !== null) {
@@ -55,36 +59,36 @@ const UpdateDelete = (props) => {
     }
 
     const deleteItem = ()=>{
-        let article = firebase.database().ref('articleDB').child(props.item.id);
+        let article = firebase.database().ref('articleDB').child(item.id);
         article.remove();
         uCheck();
     }
 
-    const handleCliquePanie = () =>{
+    const handleCliqueBasket = () =>{
 
-        if(props.panie.length < 1){
+        if(basket.length < 1){
             let list2 = [];
-            list2.push(props.item);
-            props.setPanie(list2);
+            list2.push(item);
+            setBasket(list2);
         }else{
             let list2 = [];
-            list2.push(props.item, ...props.panie);
-            props.setPanie(list2);
+            list2.push(item, ...basket);
+            setBasket(list2);
         }
     }
 
     return (
         <div>
             { update === false && (
-                <div className="articleItem" onClick={handleCliquePanie}>
+                <div className="articleItem" onClick={handleCliqueBasket}>
                     <div className="imageArt">
                         <img className="image" alt="img-test" src={imageUrl} />
                     </div>
 
                     <div className="infoArt">
-                        <div className="nomArt">{props.item.articleNom}</div>
-                        <div className="descriptionArt">{props.item.description}</div>
-                        <div className="prixArt" >{props.item.prix} $</div>
+                        <div className="nomArt">{item.articleNom}</div>
+                        <div className="descriptionArt">{item.description}</div>
+                        <div className="prixArt" >{item.prix} $</div>
                     </div>
                     
                 </div>
@@ -100,20 +104,20 @@ const UpdateDelete = (props) => {
                         <div className="nomArt">
                             <input
                                 type="text"
-                                defaultValue={props.item.articleNom}
+                                defaultValue={item.articleNom}
                                 onChange={(e) => setArticleNomUpdate(e.target.value)}
                             />
                         </div>
 
                         <div className="descriptionArt">
                             <textarea
-                                defaultValue={props.item.description}
+                                defaultValue={item.description}
                                 onChange={(e) => setDescriptionUpdate(e.target.value)}
                             />
                         </div>
 
                         <div className="selectType">
-                            <select defaultValue={props.item.type} onClick={(e) => setTypeUpdate(e.target.value)}>
+                            <select defaultValue={item.type} onClick={(e) => setTypeUpdate(e.target.value)}>
                                 <option value='Femme' >Femme</option>
                                 <option value='Homme' >Homme</option>
                                 <option value='Maison'>Maison</option>
@@ -123,7 +127,7 @@ const UpdateDelete = (props) => {
                         <div className="prixArt" >
                             <input
                                 type="number"
-                                defaultValue={props.item.prix}
+                                defaultValue={item.prix}
                                 onChange={(e) => setPrixUpdate(e.target.value)}
                             />
                         </div>
@@ -136,7 +140,7 @@ const UpdateDelete = (props) => {
                 </div>
             )}
 
-            {props.affButon !== false && uCheck() && (
+            {renderButon !== false && uCheck() && (
                 <div className="upButton">
                     <button onClick={() => setUpdate(!update)}>Modiffier</button>
                     <button onClick={deleteItem}>Suprimer</button>

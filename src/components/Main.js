@@ -4,50 +4,50 @@ import NavBarre from './NavBarre';
 import Read from './Read';
 import Footer from './Footer';
 import Popup from './Popup';
-import Panie from './Panie';
+import Basket from './Basket';
 
 const Main = () => {
 
     const [filtre, setFiltre] = useState("Nouveaute");
-    const [affButon, setaffButon] = useState(false);
+    const [renderButon, setrenderButon] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [panie,setPanie] = useState([]);
-    const [isPanie, setIsPanie] = useState(false);
+    const [basket,setBasket] = useState([]);
+    const [isBasket, setIsBasket] = useState(false);
 
     const togglePopup = () => {
         setIsOpen(!isOpen);
       }
-    const togglePopupPanie = () => {
-        setIsPanie(!isPanie);
+    const togglePopupBasket = () => {
+        setIsBasket(!isBasket);
       }
     return (
         <div className="main">
             <nav>
                 <NavBarre 
                     setFiltre={setFiltre} 
-                    setaffButon={setaffButon} 
-                    affButon={affButon} 
+                    setrenderButon={setrenderButon} 
+                    renderButon={renderButon} 
                     setIsOpen={togglePopup}
-                    panie={panie}
-                    setIsPanie={togglePopupPanie}
+                    basket={basket}
+                    setIsBasket={togglePopupBasket}
                 />
                 <h1>{filtre}</h1>
             </nav>
 
             <Read 
-                affButon={affButon} 
+                renderButon={renderButon} 
                 filtre={filtre}
-                panie={panie}
-                setPanie={setPanie}
+                basket={basket}
+                setBasket={setBasket}
             />
             {isOpen && <Popup
                 content={<Create/>}
                 handleClose={togglePopup}
             />}
 
-            {isPanie && <Popup
-                content={<Panie panie={panie} setPanie={setPanie}/>}
-                handleClose={togglePopupPanie}
+            {isBasket && <Popup
+                content={<Basket basket={basket} setBasket={setBasket}/>}
+                handleClose={togglePopupBasket}
             />}
             
             <footer>

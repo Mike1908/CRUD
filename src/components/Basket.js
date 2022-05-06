@@ -1,15 +1,25 @@
 import React from 'react';
-import '../Style/panie.css';
+import '../Style/Basket.css';
 
-const Panie = (props) => {
-    //console.log(props.panie.map((item)=>{return item.articleNom}));
+const Basket = (props) => {
+   
+    const {basket, setBasket} = props;
 
     const somme = () => {
         let sommeV=0;
-        props.panie.map((item)=>(
+        basket.map((item)=>(
             sommeV = sommeV + parseInt(item.prix)
         ))
         return sommeV
+    }
+
+    const deleteArticle = (item) =>{
+        let myIndex = basket.indexOf(item);
+        const list = basket;
+        if (myIndex !== -1) {
+            list.splice(myIndex, 1);
+        }
+        setBasket(list);
     }
 
 
@@ -19,14 +29,14 @@ const Panie = (props) => {
         <div className='Panie'>
             
             {   
-                props.panie.map((item)=>(
+                basket.map((item)=>(
                     
                     <div className='artPanie' key={item + "H" + Math.random()}>
                         <div className='miniature'></div>
                         <div className='infoSomaire'>
                             <div className='nomArtPan'>{item.articleNom}</div>
                             <div className='prixS'>{item.prix} $</div>
-                            <div className='supArt'>supprimer</div>
+                            <div className='supArt' onClick={deleteArticle(item)}>supprimer</div>
                         </div>
                         <div className='colorArt'></div>
                     </div>
@@ -40,4 +50,4 @@ const Panie = (props) => {
     );
 };
 
-export default Panie;
+export default Basket;
