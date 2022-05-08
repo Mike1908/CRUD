@@ -19,7 +19,7 @@ const NavBarre = (props) => {
             <div className="Nav-1">
                 <div className="Nav-1-Left">
                     <div className="deco" onClick={() => firebase.auth().signOut()}>
-                        se deconnecter
+                        se déconnecter
                     </div>
              
                     <div onClick={setIsOpen}>Vendre</div>
@@ -40,7 +40,7 @@ const NavBarre = (props) => {
             </div>
 
             <div className="Nav-3">
-                <div onClick={() =>setFiltre("Nouveaute")}>Nouveaute</div> 
+                <div onClick={() =>setFiltre("Nouveaute")}>Nouveau</div> 
                 <div onClick={() =>setFiltre("Femme")}>Femme</div> 
                 <div onClick={() =>setFiltre("Homme")}>Homme</div>
                 <div onClick={() =>setFiltre("Maison")}>Maison</div>

@@ -50,7 +50,7 @@ const Create = () => {
         setArticleNom(Event.target.value);
     }
 
-    const handleChangePrix = Event =>{
+    const handleChangePrice = Event =>{
         setPrix(Event.target.value);
     }
 
@@ -96,7 +96,7 @@ const Create = () => {
                    <input type="number"
                         placeholder="prix"
                         value={prix}
-                        onChange={handleChangePrix}
+                        onChange={handleChangePrice}
                     />
                </div>
 

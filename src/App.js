@@ -26,7 +26,7 @@ const App =() =>{
   };
 
   /**
-   * modifiet le user 'false' en 'true' et charge la page
+   * modifiés le user 'false' en 'true' et charge la page
    */
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user)=>{
@@ -41,8 +41,8 @@ const App =() =>{
   },[]);
 
   /**
-   * si on est pas connecte
-   * @returns html : affiche les type d authe
+   * si l’on n’est pas connecté
+   * @returns html : affiche les types d authe
    */
   const nonConnextion =() =>{
 
