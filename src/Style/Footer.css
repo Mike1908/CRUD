@@ -42,3 +42,15 @@
     font-weight: bold;
     margin-bottom:15px;
 }
+
+@media only screen and (max-width: 700px) {
+    .FooterMid div{
+        margin-left:1%;
+        margin-right:1%;
+    }
+
+    .FooterTop div{
+        margin-left:1%;
+        margin-right:1%;
+    }
+}

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../Style/Basket.css';
 
 const Basket = (props) => {
    
+    const [deleteArticleBasket, setDeleteArticleBasket] = useState(false);
     const {basket, setBasket} = props;
 
     const somme = () => {
@@ -18,8 +19,10 @@ const Basket = (props) => {
         const list = basket;
         if (myIndex !== -1) {
             list.splice(myIndex, 1);
+            setDeleteArticleBasket(!deleteArticleBasket);
         }
         setBasket(list);
+        setDeleteArticleBasket(!deleteArticleBasket);
     }
 
 
@@ -36,7 +39,7 @@ const Basket = (props) => {
                         <div className='infoSomaire'>
                             <div className='nomArtPan'>{item.articleNom}</div>
                             <div className='prixS'>{item.prix} $</div>
-                            <div className='supArt' onClick={deleteArticle(item)}>supprimer</div>
+                            <div className='supArt' onClick={() =>deleteArticle(item)}>supprimer</div>
                         </div>
                         <div className='colorArt'></div>
                     </div>
