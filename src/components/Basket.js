@@ -4,7 +4,9 @@ import '../Style/Basket.css';
 const Basket = (props) => {
    
     const [deleteArticleBasket, setDeleteArticleBasket] = useState(false);
+
     const {basket, setBasket} = props;
+
 
     const somme = () => {
         let sommeV=0;
@@ -28,14 +30,13 @@ const Basket = (props) => {
 
 
     return (
-    
+
         <div className='Panie'>
             
             {   
-                basket.map((item)=>(
-                    
+                basket.map((item)=>(    
                     <div className='artPanie' key={item + "H" + Math.random()}>
-                        <div className='miniature'></div>
+                        <div className='miniature'><img src={item.imgUrl} alt="" /></div>
                         <div className='infoSomaire'>
                             <div className='nomArtPan'>{item.articleNom}</div>
                             <div className='prixS'>{item.prix} $</div>
